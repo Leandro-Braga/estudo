@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Educação Técnica no DF · Concomitante vs TEM Senac · 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:    #d0d5e6;
+    --s1:    #e8ebf0;
+    --s2:    #b4b8c0;
+    --s3:    #1a2336;
+    --br:    rgba(0,0,0,0.09);
+    --br2:   rgba(0,0,0,0.05);
+    --blue:  #4f8ef7;
+    --cyan:  #22d3ee;
+    --green: #34d399;
+    --amber: #f59e0b;
+    --rose:  #fb7185;
+    --purp:  #a78bfa;
+    --text:  #1e2535;
+    --m:     #4b5e78;
+    --m2:    #606975;
+    --w:     #1a2336;
+    --senac: #c8102e;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+  /* HEADER */
+  header{display:grid;grid-template-columns:1fr auto;align-items:end;gap:32px;padding:52px 56px 40px;border-bottom:1px solid var(--br);position:relative;overflow:hidden;background:linear-gradient(135deg,#d0d5e6 0%,#c5cedd 100%);}
+  header::before{content:'';position:absolute;top:-120px;right:80px;width:500px;height:500px;background:radial-gradient(circle,rgba(79,142,247,0.09) 0%,transparent 65%);pointer-events:none;}
+  header::after{content:'';position:absolute;bottom:-80px;left:200px;width:400px;height:400px;background:radial-gradient(circle,rgba(200,16,46,0.05) 0%,transparent 65%);pointer-events:none;}
+  .chip{display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.25);padding:5px 12px;border-radius:100px;margin-bottom:18px;}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--blue);animation:blink 2.4s ease infinite;}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+  h1{font-family:'DM Serif Display',serif;font-size:clamp(28px,3.8vw,48px);font-weight:400;color:var(--w);line-height:1.05;letter-spacing:-.025em;}
+  h1 i{color:var(--blue);font-style:italic;}
+  h1 em{color:var(--senac);font-style:italic;}
+  .hmeta{font-size:13px;color:var(--m2);margin-top:10px;font-weight:300;}
+  .hright{display:flex;flex-direction:column;align-items:flex-end;gap:8px;padding-bottom:4px;}
+  .hstat-block{text-align:right;}
+  .hstat-val{font-size:28px;font-weight:700;color:var(--w);letter-spacing:-.03em;line-height:1;}
+  .hstat-lbl{font-size:11px;color:var(--m2);}
+  .hstat-accent{font-size:11px;font-weight:700;padding:2px 9px;border-radius:100px;display:inline-block;margin-top:3px;}
+  .hdiv{width:40px;height:1px;background:var(--br);margin:2px 0 2px auto;}
+  .senac-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--senac);background:rgba(200,16,46,.08);border:1px solid rgba(200,16,46,.2);padding:4px 10px;border-radius:100px;margin-top:6px;}
+
+  /* LAYOUT */
+  .wrap{max-width:1240px;margin:0 auto;padding:0 56px 80px;}
+  .section{margin-top:52px;}
+  .sec-hd{display:flex;align-items:baseline;gap:16px;margin-bottom:22px;padding-bottom:12px;border-bottom:1px solid var(--br);}
+  .sec-title{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--m);}
+  .sec-note{font-size:12px;color:var(--m2);font-weight:300;}
+  .sec-num{font-size:20px;font-weight:700;color:var(--br);margin-right:4px;font-family:'DM Serif Display',serif;font-style:italic;}
+
+  /* KPI */
+  .kpi-row{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--br);border-radius:14px;overflow:hidden;background:rgba(0,0,0,.03);gap:1px;}
+  @media(max-width:900px){.kpi-row{grid-template-columns:repeat(3,1fr);}}
+  .kpi{background:var(--s1);padding:22px 18px 18px;position:relative;transition:background .18s;}
+  .kpi:hover{background:var(--s2);}
+  .kpi-acc{width:24px;height:3px;border-radius:2px;margin-bottom:12px;}
+  .kpi-val{font-size:24px;font-weight:700;color:var(--w);letter-spacing:-.03em;line-height:1;margin-bottom:4px;}
+  .kpi-lbl{font-size:10.5px;color:var(--m2);line-height:1.4;font-weight:400;}
+  .kpi-tag{position:absolute;top:13px;right:13px;font-size:9px;font-weight:700;padding:2px 7px;border-radius:100px;letter-spacing:.02em;}
+  .tup{background:rgba(52,211,153,.15);color:#0ab174;}
+  .tdn{background:rgba(251,113,133,.15);color:#f04060;}
+  .tnu{background:rgba(148,163,184,.12);color:#64748b;}
+
+  /* CARD */
+  .card{background:var(--s1);border:1px solid var(--br);border-radius:14px;padding:24px;}
+  .card-title{font-size:13px;font-weight:600;color:var(--w);margin-bottom:3px;}
+  .card-desc{font-size:11.5px;color:var(--m2);line-height:1.5;margin-bottom:18px;}
+
+  /* STORY CARD */
+  .story-card{background:var(--s1);border:1px solid var(--br);border-radius:14px;padding:26px 30px;position:relative;overflow:hidden;}
+  .story-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:14px 0 0 14px;}
+  .story-num{font-family:'DM Serif Display',serif;font-size:64px;font-weight:400;line-height:1;color:rgba(0,0,0,.04);position:absolute;top:10px;right:24px;letter-spacing:-.04em;}
+  .story-label{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+  .story-title{font-size:16px;font-weight:600;color:var(--w);line-height:1.3;margin-bottom:10px;}
+  .story-body{font-size:12.5px;color:var(--m2);line-height:1.7;}
+  .story-body strong{color:var(--text);font-weight:600;}
+
+  /* GRIDS */
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;}
+  .g2-3{display:grid;grid-template-columns:2fr 1fr;gap:18px;}
+  .g1-2{display:grid;grid-template-columns:1fr 2fr;gap:18px;}
+  @media(max-width:900px){.g2,.g3,.g2-3,.g1-2{grid-template-columns:1fr;}}
+
+  /* BARS */
+  .bars{display:flex;flex-direction:column;gap:10px;}
+  .b-row{display:flex;align-items:center;gap:10px;}
+  .b-yr{font-size:11px;color:var(--m2);min-width:38px;font-weight:500;}
+  .b-lbl{font-size:11px;color:var(--m2);min-width:130px;font-weight:400;}
+  .b-track{flex:1;height:7px;background:rgba(0,0,0,.06);border-radius:10px;overflow:hidden;}
+  .b-fill{height:100%;border-radius:10px;animation:growIn 1.1s cubic-bezier(.22,1,.36,1) forwards;}
+  @keyframes growIn{from{width:0!important;}}
+  .b-val{font-size:12px;font-weight:600;color:var(--text);min-width:56px;text-align:right;}
+
+  /* TREND TABLE */
+  .trend{display:flex;flex-direction:column;}
+  .t-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid var(--br2);gap:10px;}
+  .t-row:last-child{border-bottom:none;}
+  .t-yr{font-size:11px;color:var(--m);min-width:38px;font-weight:600;}
+  .t-val{font-size:13px;font-weight:600;color:var(--w);flex:1;}
+  .t-sub{font-size:11px;color:var(--m2);flex:1;}
+  .t-tag{font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:100px;}
+
+  /* CALLOUT */
+  .callout{background:rgba(79,142,247,.05);border:1px solid rgba(79,142,247,.18);border-radius:9px;padding:11px 14px;font-size:11.5px;color:var(--m2);line-height:1.6;margin-top:13px;}
+  .callout strong{color:var(--blue);}
+  .callout-green{background:rgba(52,211,153,.05);border-color:rgba(52,211,153,.2);}
+  .callout-green strong{color:#0ab174;}
+  .callout-amber{background:rgba(245,158,11,.05);border-color:rgba(245,158,11,.2);}
+  .callout-amber strong{color:#b87a00;}
+  .callout-rose{background:rgba(251,113,133,.05);border-color:rgba(251,113,133,.2);}
+  .callout-rose strong{color:#d93050;}
+  .callout-purp{background:rgba(167,139,250,.05);border-color:rgba(167,139,250,.2);}
+  .callout-purp strong{color:#7c5de0;}
+  .callout-senac{background:rgba(200,16,46,.05);border-color:rgba(200,16,46,.18);}
+  .callout-senac strong{color:var(--senac);}
+
+  /* COMPARISON BLOCK */
+  .cmp-grid{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;align-items:stretch;}
+  .cmp-side{background:var(--s1);border:1px solid var(--br);border-radius:14px;padding:24px 22px;}
+  .cmp-vs{display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:18px;font-style:italic;color:var(--m2);}
+  .cmp-badge{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:100px;display:inline-block;margin-bottom:10px;}
+  .cmp-main-val{font-size:36px;font-weight:700;letter-spacing:-.04em;line-height:1;margin-bottom:2px;}
+  .cmp-sub{font-size:11px;color:var(--m2);margin-bottom:16px;}
+  .cmp-growth{font-size:12px;font-weight:700;padding:4px 12px;border-radius:8px;display:inline-block;margin-bottom:16px;}
+  .cmp-divider{height:1px;background:var(--br);margin:14px 0;}
+  .cmp-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;}
+  .cmp-lbl{font-size:11.5px;color:var(--m2);}
+  .cmp-num{font-size:12px;font-weight:600;color:var(--w);}
+
+  /* SPARK */
+  .spark{display:flex;align-items:flex-end;gap:4px;height:40px;margin:12px 0 6px;}
+  .sp{flex:1;border-radius:3px 3px 0 0;min-width:12px;transition:opacity .2s;}
+  .spark-nums{font-size:10px;color:var(--m);display:flex;justify-content:space-between;}
+
+  /* DONUT */
+  .donut-wrap{display:flex;align-items:center;gap:22px;}
+  .leg{display:flex;flex-direction:column;gap:10px;flex:1;}
+  .leg-row{display:flex;align-items:center;gap:8px;}
+  .leg-sq{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
+  .leg-lbl{font-size:12px;color:var(--m2);flex:1;}
+  .leg-pct{font-size:13px;font-weight:700;color:var(--w);}
+
+  /* HIGHLIGHT STRIP */
+  .hl-strip{background:linear-gradient(135deg,#1a2336 0%,#243352 100%);border-radius:14px;padding:30px 32px;color:#e2e8f0;position:relative;overflow:hidden;}
+  .hl-strip::after{content:'';position:absolute;top:-80px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(200,16,46,0.15) 0%,transparent 65%);}
+  .hl-strip-title{font-family:'DM Serif Display',serif;font-size:20px;font-weight:400;color:#f1f5f9;margin-bottom:6px;}
+  .hl-strip-body{font-size:12.5px;color:#94a3b8;line-height:1.7;max-width:640px;}
+  .hl-strip-body strong{color:#e2e8f0;}
+  .hl-nums{display:flex;gap:32px;margin-top:22px;flex-wrap:wrap;}
+  .hl-num-block{border-left:3px solid rgba(255,255,255,.12);padding-left:16px;}
+  .hl-num-val{font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1;}
+  .hl-num-lbl{font-size:11px;color:#64748b;margin-top:2px;}
+
+  /* PROFILE */
+  .pbar{margin-bottom:13px;}
+  .pmeta{display:flex;justify-content:space-between;margin-bottom:5px;}
+  .plbl{font-size:12px;color:var(--m2);}
+  .pnum{font-size:12px;font-weight:600;color:var(--text);}
+  .ptrack{height:6px;background:rgba(0,0,0,.06);border-radius:10px;overflow:hidden;}
+  .pfill{height:100%;border-radius:10px;animation:growIn 1.2s cubic-bezier(.22,1,.36,1) forwards;}
+
+  /* INSIGHTS */
+  .ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;}
+  @media(max-width:900px){.ins-grid{grid-template-columns:1fr;}}
+  .ins{background:var(--s1);border:1px solid var(--br);border-radius:14px;padding:18px 20px;display:flex;gap:13px;}
+  .ins-ico{width:36px;height:36px;flex-shrink:0;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+  .ins-title{font-size:12.5px;font-weight:600;color:var(--w);margin-bottom:3px;}
+  .ins-body{font-size:11.5px;color:var(--m2);line-height:1.6;}
+
+  /* NACIONAL TABLE */
+  .ntable{width:100%;border-collapse:collapse;}
+  .ntable th{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);padding:8px 12px;text-align:left;border-bottom:2px solid var(--br);}
+  .ntable td{font-size:12.5px;color:var(--text);padding:9px 12px;border-bottom:1px solid var(--br2);}
+  .ntable tr:last-child td{border-bottom:none;}
+  .ntable td.num{font-weight:600;text-align:right;}
+  .ntable td.yr{font-weight:700;color:var(--w);}
+  .ntable tr.highlight td{background:rgba(79,142,247,.05);}
+  .ntable tr.highlight td.yr{color:var(--blue);}
+
+  /* TIMELINE */
+  .timeline{position:relative;padding-left:24px;}
+  .timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:var(--br);}
+  .tl-item{position:relative;padding-bottom:20px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{position:absolute;left:-24px;top:4px;width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+  .tl-dot-inner{width:7px;height:7px;border-radius:50%;}
+  .tl-yr{font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--m);margin-bottom:3px;}
+  .tl-val{font-size:16px;font-weight:700;color:var(--w);letter-spacing:-.02em;margin-bottom:2px;}
+  .tl-desc{font-size:11.5px;color:var(--m2);line-height:1.5;}
+
+  /* STACKED BAR */
+  .sbar-wrap{display:flex;flex-direction:column;gap:14px;}
+  .sbar-item{display:flex;flex-direction:column;gap:14px;}
+  .sbar-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;}
+  .sbar-lbl{font-size:12px;color:var(--m2);}
+  .sbar-total{font-size:12px;font-weight:600;color:var(--w);}
+  .sbar-track{height:10px;background:rgba(0,0,0,.06);border-radius:10px;overflow:hidden;display:flex;}
+  .sbar-seg{height:100%;}
+  .sbar-seg:first-child{border-radius:10px 0 0 10px;}
+  .sbar-seg:last-child{border-radius:0 10px 10px 0;}
+  .sbar-legend{display:flex;gap:14px;margin-top:6px;flex-wrap:wrap;}
+  .sbar-leg-item{display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--m2);}
+  .sbar-leg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--br);padding:18px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-top:40px;}
+  footer span{font-size:11px;color:var(--m);}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div>
+    <div class="chip"><span class="dot"></span> Análise de Dados Educacionais</div>
+    <h1>Censo Escolar <em>-</em> <i>2025</i> <br>Distrito Federal</h1>
+    <p class="hmeta">Censo Escolar 2025 · Habilitação Profissional Técnica de Nível Médio · Evolução 2022–2025</p>
+    <div class="senac-badge">● Senac DF · rede privada</div>
+  </div>
+  <div class="hright">
+    <div class="hstat-block">
+      <div class="hstat-val">10.139</div>
+      <div class="hstat-lbl">matrículas concomitante DF · 2025</div>
+      <div class="hstat-accent" style="background:rgba(52,211,153,.15);color:#0ab174;">▲ 93% vs 2024</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hstat-block">
+      <div class="hstat-val">5.342</div>
+      <div class="hstat-lbl">matrículas Executadas TEM Senac · 2025</div>
+      <div class="hstat-accent" style="background:rgba(167,139,250,.15);color:#7c5de0;">▲ 65,8% vs 2024</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hstat-block">
+      <div class="hstat-val">10.167</div>
+      <div class="hstat-lbl">matrículas HPTNM Senac · 2025</div>
+      <div class="hstat-accent" style="background:rgba(245,158,11,.15);color:#b87a00;">▲ 7% · 4° ano de alta</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- KPI ROW -->
+  <div class="section">
+    <div class="sec-hd">
+      <span class="sec-title">Indicadores-Chave · 2025</span>
+      <span class="sec-note">Cenário da educação técnica no Distrito Federal</span>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="kpi-acc" style="background:var(--cyan);"></div>
+        <div class="kpi-val">10.139</div>
+        <div class="kpi-lbl">Matrículas Concomitante DF · total</div>
+        <span class="kpi-tag tup">▲ 93%</span>
+      </div>
+      <div class="kpi">
+        <div class="kpi-acc" style="background:var(--purp);"></div>
+        <div class="kpi-val">5.342</div>
+        <div class="kpi-lbl">Matrículas TEM Senac · 2025</div>
+        <span class="kpi-tag tup">▲ 65,8%</span>
+      </div>
+      <div class="kpi">
+        <div class="kpi-acc" style="background:var(--amber);"></div>
+        <div class="kpi-val">10.167</div>
+        <div class="kpi-lbl">HPTNM Senac · base consolidada</div>
+        <span class="kpi-tag tup">▲ 7%</span>
+      </div>
+      <div class="kpi">
+        <div class="kpi-acc" style="background:var(--senac);"></div>
+        <div class="kpi-val">52,7%</div>
+        <div class="kpi-lbl">TEM Senac sobre todo concomitante DF</div>
+        <span class="kpi-tag tnu">Senac</span>
+      </div>
+      <div class="kpi">
+        <div class="kpi-acc" style="background:var(--green);"></div>
+        <div class="kpi-val">173</div>
+        <div class="kpi-lbl">Turmas 2025 no Senac (TEM) no DF</div>
+        <span class="kpi-tag tnu">Senac</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORYTELLING: CAPÍTULO 1 -->
+  <div class="section">
+    <div class="sec-hd">
+      <span class="sec-num">01</span>
+      <span class="sec-title">Contexto</span>
+      <span class="sec-note">O que os números do Censo 2025 nos dizem sobre o DF</span>
+    </div>
+
+    <div class="hl-strip">
+      <div class="hl-strip-title">A educação profissional técnica do Distrito Federal</div>
+      <div class="hl-strip-body">
+        Em 2025, enquanto as matrículas totais do DF recuaram <strong>1,5%</strong>, a educação profissional técnica seguiu na direção oposta: <strong>crescimento de +11,4%</strong>, com destaque para a modalidade concomitante, que praticamente dobrou. Este é o cenário de estudantes que estão optando por formações que combinam ensino médio e qualificação profissional simultaneamente. O <strong>Senac</strong> ocupa papel importante nesse movimento.
+      </div>
+      <div class="hl-nums">
+        <div class="hl-num-block">
+          <div class="hl-num-val" style="color:#fb7185;">▼ 9.321</div>
+          <div class="hl-num-lbl">matrículas totais perdidas no DF</div>
+        </div>
+        <div class="hl-num-block">
+          <div class="hl-num-val" style="color:#34d399;">▲ +2.944</div>
+          <div class="hl-num-lbl">novas matrículas técnicas no DF</div>
+        </div>
+        <div class="hl-num-block">
+          <div class="hl-num-val" style="color:#a78bfa;">+4.877</div>
+          <div class="hl-num-lbl">novas matrículas concomitante DF vs 2024</div>
+        </div>
+        <div class="hl-num-block">
+          <div class="hl-num-val" style="color:#f59e0b;">60,8%</div>
+          <div class="hl-num-lbl">das 8.784 matrículas privadas técnica concomitante são <strong>Senac</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORYTELLING: CAPÍTULO 2 – COMPARATIVO CENTRAL -->
+  <div class="section">
+    <div class="sec-hd">
+      <span class="sec-num">02</span>
+      <span class="sec-title">Comparativo Central</span>
+      <span class="sec-note">Técnico Concomitante X TEM Senac · evolução</span>
+    </div>
+
+    <div class="cmp-grid" style="gap:14px;">
+      <!-- CONCOMITANTE -->
+      <div class="cmp-side" style="border-left:4px solid var(--cyan);">
+        <div class="cmp-badge" style="background:rgba(34,211,238,.1);color:var(--cyan);">● Técnico Concomitante · DF Total</div>
+        <div class="cmp-main-val" style="color:var(--cyan);">10.139</div>
+        <div class="cmp-sub">matrículas em 2025 | rede pública + privada</div>
+        <div class="cmp-growth" style="background:rgba(52,211,153,.13);color:#0ab174;">▲ 93% vs 2024 &nbsp;·&nbsp; +4.877 matrículas</div>
+
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);margin-bottom:8px;">Evolução de Matrículas</div>
+        <div class="spark">
+          <div class="sp" style="height:42%;background:rgba(34,211,238,.3);"></div>
+          <div class="sp" style="height:54%;background:rgba(34,211,238,.45);"></div>
+          <div class="sp" style="height:52%;background:rgba(34,211,238,.45);"></div>
+          <div class="sp" style="height:100%;background:var(--cyan);"></div>
+        </div>
+        <div class="spark-nums"><span>4.311</span><span>5.463</span><span>5.262</span><span style="color:var(--cyan);font-weight:700;">10.139</span></div>
+        <div style="font-size:9.5px;color:var(--m2);display:flex;justify-content:space-between;margin-bottom:14px;"><span>2022</span><span>2023</span><span>2024</span><span>2025</span></div>
+
+        <div class="cmp-divider"></div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);margin-bottom:10px;">Distribuição Pública X Privada · 2025</div>
+        <div class="cmp-row"><span class="cmp-lbl">Rede Privada</span><span class="cmp-num" style="color:var(--cyan);">8.784 &nbsp;<span style="font-size:10px;font-weight:400;color:var(--m2);">86,6%</span></span></div>
+        <div class="cmp-row"><span class="cmp-lbl">Rede Pública</span><span class="cmp-num">1.355 &nbsp;<span style="font-size:10px;font-weight:400;color:var(--m2);">13,4%</span></span></div>
+
+        <div class="callout" style="background:rgba(34,211,238,.05);border-color:rgba(34,211,238,.18);">
+          <strong>Concentração no setor privado.</strong> 86,6% das matrículas concomitantes no DF são da rede privada, sendo que o Senac TEM representa <strong>60,8% desse montante privado</strong>.
+        </div>
+      </div>
+
+      <!-- VS -->
+      <div class="cmp-vs">vs</div>
+
+      <!-- TEM SENAC -->
+      <div class="cmp-side" style="border-left:4px solid var(--purp);">
+        <div class="cmp-badge" style="background:rgba(167,139,250,.1);color:var(--purp);">● Técnico no Ensino Médio · Senac DF</div>
+        <div class="cmp-main-val" style="color:var(--purp);">5.342</div>
+        <div class="cmp-sub">matrículas executadas até 31/12/2025 | rede privada Senac</div>
+        <div class="cmp-growth" style="background:rgba(167,139,250,.15);color:#7c5de0;">▲ 65,8% vs 2024 &nbsp;·&nbsp; +297% acum. 2023→2025</div>
+
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);margin-bottom:8px;">Evolução de Matrículas</div>
+        <div class="spark">
+          <div class="sp" style="height:0%;background:transparent;flex:0 0 6px;min-width:0;"></div>
+          <div class="sp" style="height:25%;background:rgba(167,139,250,.3);"></div>
+          <div class="sp" style="height:60%;background:rgba(167,139,250,.55);"></div>
+          <div class="sp" style="height:100%;background:var(--purp);"></div>
+        </div>
+        <div class="spark-nums"><span style="opacity:.3;">—</span><span>1.344</span><span>3.223</span><span style="color:var(--purp);font-weight:700;">5.342</span></div>
+        <div style="font-size:9.5px;color:var(--m2);display:flex;justify-content:space-between;margin-bottom:14px;"><span>2022</span><span>2023</span><span>2024</span><span>2025</span></div>
+
+        <div class="cmp-divider"></div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--m2);margin-bottom:10px;">Peso Estratégico no Mercado · 2025</div>
+        <div class="cmp-row"><span class="cmp-lbl">% do Concomitante Total DF</span><span class="cmp-num" style="color:var(--purp);">52,7%</span></div>
+        <div class="cmp-row"><span class="cmp-lbl">% do Concomitante Privado DF</span><span class="cmp-num" style="color:var(--purp);">60,8%</span></div>
+        <div class="cmp-row"><span class="cmp-lbl">Programa iniciado em</span><span class="cmp-num">2023</span></div>
+
+        <div class="callout callout-purp">
+          <strong>Crescimento do concomitante.</strong> O TEM Senac representa metade de TODO o ensino concomitante do DF em 2025, mesmo sendo um programa com apenas 3 anos de operação.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORYTELLING: CAPÍTULO 3 – HPTNM -->
+  <div class="section">
+    <div class="sec-hd">
+      <span class="sec-num">03</span>
+      <span class="sec-title">Habilitação Profissional Técnica de Nível Médio</span>
+      <span class="sec-note">HPTNM · Dados consolidado do Senac</span>
+    </div>
+
+    <div class="g2-3">
+      <div class="card">
+        <div class="card-title">HPTNM Senac — Evolução 2022–2025</div>
+        <div class="card-desc">Cursos nas modalidades Habilitação Profissional Técnica de Nível Médio · foco em comércio, serviços, saúde e tecnologia</div>
+
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot" style="background:rgba(245,158,11,.12);"><div class="tl-dot-inner" style="background:rgba(245,158,11,.5);"></div></div>
+            <div class="tl-yr">2022</div>
+            <div class="tl-val" style="color:rgba(245,158,11,.7);">7.257 matrículas</div>
+            <div class="tl-desc">Base de operação — referência do período</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot" style="background:rgba(245,158,11,.18);"><div class="tl-dot-inner" style="background:rgba(245,158,11,.65);"></div></div>
+            <div class="tl-yr">2023</div>
+            <div class="tl-val" style="color:rgba(245,158,11,.8);">7.913 matrículas</div>
+            <div class="tl-desc">Crescimento de +9% — expansão gradual</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot" style="background:rgba(245,158,11,.25);"><div class="tl-dot-inner" style="background:rgba(245,158,11,.8);"></div></div>
+            <div class="tl-yr">2024</div>
+            <div class="tl-val" style="color:rgba(245,158,11,.9);">9.501 matrículas</div>
+            <div class="tl-desc">Aceleração de +20,1% — ganho expressivo de volume</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot" style="background:rgba(245,158,11,.3);"><div class="tl-dot-inner" style="background:var(--amber);"></div></div>
+            <div class="tl-yr">2025</div>
+            <div class="tl-val" style="color:var(--amber);">10.167 matrículas</div>
+            <div class="tl-desc"><strong>4° ano consecutivo de crescimento</strong> · +40% acumulado vs 2022</div>
+          </div>
+        </div>
+
+        <div class="callout callout-amber" style="margin-top:18px;">
+          <strong>Consistência:</strong> Em 4 anos consecutivos de alta, a HPTNM dobrou sua escala relativa. Representa o maior programa técnico privado do DF com uma base sólida sobre a qual o TEM foi construído.
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="card" style="padding:22px;">
+          <div class="card-title">HPTNM:</div>
+          <div style="font-size:12px;color:var(--m2);line-height:1.75;margin-top:8px;">
+            A <strong style="color:var(--text);">Habilitação Profissional Técnica de Nível Médio</strong> é a oferta técnica tradicional do Senac, abrangendo cursos com foco nas áreas de <strong style="color:var(--text);">comércio, serviços, saúde e tecnologia</strong>. Que forma a atuação institucional do Senac na educação profissional do DF.
+          </div>
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+            <div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:8px 12px;font-size:11px;">
+              <div style="font-weight:700;color:var(--amber);">+40%</div>
+              <div style="color:var(--m2);">crescimento 2022→2025</div>
+            </div>
+            <div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:8px 12px;font-size:11px;">
+              <div style="font-weight:700;color:var(--amber);">10.167</div>
+              <div style="color:var(--m2);">matrículas em 2025</div>
+            </div>
+            <div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:8px 12px;font-size:11px;">
+              <div style="font-weight:700;color:var(--amber);">4 anos</div>
+              <div style="color:var(--m2);">de alta consecutiva</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:22px;">
+          <div class="card-title">HPTNM e TEM · Senac no Mercado Privado</div>
+          <div class="card-desc">Participação Senac nas matrículas técnicas privadas do DF (2025)</div>
+          <div style="text-align:center;padding:12px 0 8px;">
+            <div style="font-size:44px;font-weight:700;color:var(--senac);letter-spacing:-.04em;line-height:1;">57,3%</div>
+            <div style="font-size:12px;color:var(--m2);margin-top:4px;">das 17.744 matrículas privadas técnicas no DF</div>
+          </div>
+          <div class="pbar" style="margin-top:8px;">
+            <div class="pmeta"><span class="plbl" style="color:var(--senac);">Senac (HPTNM e TEM)</span><span class="pnum">10.167</span></div>
+            <div class="ptrack"><div class="pfill" style="width:57.3%;background:linear-gradient(90deg,var(--senac),#e8304a);"></div></div>
+          </div>
+          <div class="pbar">
+            <div class="pmeta"><span class="plbl">Outras instituições privadas</span><span class="pnum">7.577</span></div>
+            <div class="ptrack"><div class="pfill" style="width:42.7%;background:var(--m2);"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORYTELLING: CAPÍTULO 4 – CONTEXTO NACIONAL -->
+  <div class="section">
+    <div class="sec-hd">
+      <span class="sec-num">04</span>
+      <span class="sec-title">Contexto Nacional</span>
+      <span class="sec-note">O Concomitante no Brasil / DF vs tendência nacional</span>
+    </div>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">Matrículas Concomitante — Brasil</div>
+        <div class="card-desc">Evolução nacional por rede · 2022–2025</div>
+        <table class="ntable">
+          <thead>
+            <tr>
+              <th>Ano</th>
+              <th style="text-align:right;">Total</th>
+              <th style="text-align:right;">Privada</th>
+              <th style="text-align:right;">Pública</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="yr">2022</td>
+              <td class="num">287.320</td>
+              <td class="num">205.920</td>
+              <td class="num">81.400</td>
+            </tr>
+            <tr>
+              <td class="yr">2023</td>
+              <td class="num">331.514</td>
+              <td class="num">256.503</td>
+              <td class="num">75.011</td>
+            </tr>
+            <tr>
+              <td class="yr">2024</td>
+              <td class="num">313.866</td>
+              <td class="num">233.605</td>
+              <td class="num">80.261</td>
+            </tr>
+            <tr class="highlight">
+              <td class="yr">2025</td>
+              <td class="num" style="color:var(--blue);font-weight:700;">348.446</td>
+              <td class="num" style="color:var(--blue);">242.019</td>
+              <td class="num" style="color:var(--green);">106.427</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout" style="margin-top:14px;">
+          Em 2025 o Brasil registrou <strong>+11% no concomitante</strong>. O DF cresceu <strong>+93%</strong> quase 9× acima da média nacional. O programa TEM Senac é um fator relevante desse crescimento regional.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Matrículas Concomitante — Distrito Federal</div>
+        <div class="card-desc">Distribuição pública × privada · evolução</div>
+        <div class="sbar-wrap">
+          <div class="sbar-item">
+            <div class="sbar-head"><span class="sbar-lbl">2022</span><span class="sbar-total">4.311</span></div>
+            <div class="sbar-track">
+              <div class="sbar-seg" style="width:78.6%;background:var(--cyan);animation:growIn 1s ease forwards;"></div>
+              <div class="sbar-seg" style="width:21.4%;background:rgba(34,211,238,.25);"></div>
+            </div>
+          </div>
+          <div class="sbar-item">
+            <div class="sbar-head"><span class="sbar-lbl">2023</span><span class="sbar-total">5.463</span></div>
+            <div class="sbar-track">
+              <div class="sbar-seg" style="width:81%;background:var(--cyan);"></div>
+              <div class="sbar-seg" style="width:19%;background:rgba(34,211,238,.25);"></div>
+            </div>
+          </div>
+          <div class="sbar-item">
+            <div class="sbar-head"><span class="sbar-lbl">2024</span><span class="sbar-total">5.262</span></div>
+            <div class="sbar-track">
+              <div class="sbar-seg" style="width:72.6%;background:var(--cyan);"></div>
+              <div class="sbar-seg" style="width:27.4%;background:rgba(34,211,238,.25);"></div>
+            </div>
+          </div>
+          <div class="sbar-item">
+            <div class="sbar-head"><span class="sbar-lbl" style="font-weight:700;color:var(--w);">2025</span><span class="sbar-total" style="font-weight:700;color:var(--w);">10.139</span></div>
+            <div class="sbar-track" style="height:13px;">
+              <div class="sbar-seg" style="width:86.6%;background:linear-gradient(90deg,var(--cyan),#67e8f9);"></div>
+              <div class="sbar-seg" style="width:13.4%;background:rgba(34,211,238,.3);border-radius:0 10px 10px 0;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="sbar-legend" style="margin-top:12px;">
+          <div class="sbar-leg-item"><div class="sbar-leg-dot" style="background:var(--cyan);"></div>Privada</div>
+          <div class="sbar-leg-item"><div class="sbar-leg-dot" style="background:rgba(34,211,238,.3);"></div>Pública</div>
+        </div>
+        <div class="callout" style="background:rgba(34,211,238,.05);border-color:rgba(34,211,238,.18);margin-top:14px;">
+          O <strong>crescimento de 2025 foi quase inteiramente privado</strong>: +4.965 matrículas privadas. O TEM Senac (parceria com escolas públicas) é um fator relevante desse crescimento.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORYTELLING: CAPÍTULO 5 – PERFIL DO ESTUDANTE -->
+  <div class="section">
+    <div class="sec-hd">
+      <span class="sec-num">05</span>
+      <span class="sec-title">Perfil do Estudante</span>
+      <span class="sec-note">Educação profissional técnica de nível médio · DF · 2025 (34.579 matrículas)</span>
+    </div>
+
+    <div class="g3">
+      <!-- FAIXA ETÁRIA PRIVADA -->
+      <div class="card">
+        <div class="card-title">Faixa Etária · Rede Privada</div>
+        <div class="card-desc">18.864 matrículas · foco nos públicos estratégicos</div>
+        <div class="bars">
+          <div class="b-row">
+            <span class="b-lbl">Até 14 anos</span>
+            <div class="b-track"><div class="b-fill" style="width:0.4%;background:var(--blue);"></div></div>
+            <span class="b-val">36</span>
+          </div>
+          <div class="b-row">
+            <span class="b-lbl" style="color:var(--purp);font-weight:600;">15 a 17 anos</span>
+            <div class="b-track"><div class="b-fill" style="width:24%;background:var(--purp);"></div></div>
+            <span class="b-val" style="color:var(--purp);">4.538</span>
+          </div>
+          <div class="b-row">
+            <span class="b-lbl">18 a 19 anos</span>
+            <div class="b-track"><div class="b-fill" style="width:6.4%;background:var(--cyan);"></div></div>
+            <span class="b-val">1.201</span>
+          </div>
+          <div class="b-row">
+            <span class="b-lbl">20 a 29 anos</span>
+            <div class="b-track"><div class="b-fill" style="width:32.5%;background:var(--blue);"></div></div>
+            <span class="b-val">6.106</span>
+          </div>
+          <div class="b-row">
+            <span class="b-lbl">30 anos ou mais</span>
+            <div class="b-track"><div class="b-fill" style="width:37.5%;background:linear-gradient(90deg,var(--blue),var(--purp));"></div></div>
+            <span class="b-val">6.983</span>
+          </div>
+        </div>
+        <div class="callout callout-purp">
+          <strong>15–17 anos:</strong> público-alvo direto do TEM Senac. Representam 24% da rede privada e esse número tende a crescer com a expansão do programa.
+        </div>
+      </div>
+
+      <!-- FAIXA ETÁRIA PÚBLICA -->
+      <div class="card">
+        <div class="card-title">Faixa Etária · Rede Pública</div>
+        <div class="card-desc">15.715 matrículas · escola parceira do TEM Senac</div>
+        <div class="bars">
+          <div class="b-row">
+            <span class="b-lbl">Até 14 anos</span>
+            <div class="b-track"><div class="b-fill" style="width:0.4%;background:var(--green);"></div></div>
+            <span class="b-val">70</span>
+          </div>
+          <div class="b-row">
+            <span class="b-lbl" style="color:var(--green);font-weight:600;">15 a 17 anos</span>
+            <div class="b-track"><div class="b-fill" style="width:30.6%;background:var(--green);"></div></div>
+            <span class="b-val" style="color:var(--green);">4.808</span>
+          </div>
+          <div class="b-row">
+            <span class="b-lbl">18 a 19 anos</span>
+            <div class="b-track"><div class="b-fill" style="width:11.1%;background:var(--cyan);"></div></div>
+            <span class="b-val">1.738</span>
+          </div>
+          <div class="b-row">
+            <span class="b-lbl">20 a 29 anos</span>
+            <div class="b-track"><div class="b-fill" style="width:24.2%;background:var(--blue);"></div></div>
+            <span class="b-val">3.756</span>
+          </div>
+          <div class="b-row">
+            <span class="b-lbl">30 anos ou mais</span>
+            <div class="b-track"><div class="b-fill" style="width:33.7%;background:linear-gradient(90deg,var(--blue),var(--green));"></div></div>
+            <span class="b-val">5.343</span>
+          </div>
+        </div>
+        <div class="callout callout-green">
+          <strong>Jovens na escola pública:</strong> público co-beneficiário do TEM Senac em parceria com as escolas da rede estadual do DF.
+        </div>
+      </div>
+
+      <!-- SEXO E PERFIL BRASIL -->
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="card">
+          <div class="card-title">Distribuição por Sexo · DF</div>
+          <div class="card-desc">Educação profissional técnica | 18.864 matrículas em 2025</div>
+          <div class="pbar" style="margin-top:10px;">
+            <div class="pmeta"><span class="plbl" style="color:#ec4899;">Feminino</span><span class="pnum">11.368 · 60,3%</span></div>
+            <div class="ptrack"><div class="pfill" style="width:60.3%;background:linear-gradient(90deg,#ec4899,#f472b6);"></div></div>
+          </div>
+          <div class="pbar">
+            <div class="pmeta"><span class="plbl">Masculino</span><span class="pnum">7.496 · 39,7%</span></div>
+            <div class="ptrack"><div class="pfill" style="width:39.7%;background:var(--blue);"></div></div>
+          </div>
+          <div class="callout" style="background:rgba(236,72,153,.05);border-color:rgba(236,72,153,.18);">
+            <strong style="color:#ec4899;">Maioria feminina.</strong> As mulheres lideram por 3.872 matrículas, dado relevante para o design de cursos e áreas de atuação.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Brasil · Educação Técnica</div>
+          <div class="card-desc">Contexto nacional 2025</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;">
+            <div style="text-align:center;">
+              <div style="font-size:22px;font-weight:700;color:var(--w);letter-spacing:-.03em;">1.644.050</div>
+              <div style="font-size:10.5px;color:var(--m2);">matrículas técnicas BR</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:22px;font-weight:700;color:#ec4899;letter-spacing:-.03em;">53,4%</div>
+              <div style="font-size:10.5px;color:var(--m2);">feminino (878.705)</div>
+            </div>
+          </div>
+          <div style="margin-top:10px;font-size:11.5px;color:var(--m2);">O DF segue a tendência nacional de predominância feminina na educação técnica.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORYTELLING: CAPÍTULO 6 – INSIGHTS ESTRATÉGICOS -->
+  <div class="section">
+    <div class="sec-hd">
+      <span class="sec-num">06</span>
+      <span class="sec-title">Insights Estratégicos</span>
+      <span class="sec-note">Pontos de interesse · Censo Escolar 2025</span>
+    </div>
+
+    <div class="ins-grid">
+      <div class="ins">
+        <div class="ins-ico" style="background:rgba(167,139,250,.12);">🚀</div>
+        <div>
+          <div class="ins-title">TEM Senac:</div>
+          <div class="ins-body">Com 5.342 matrículas em 2025, o TEM representa <strong>52,7% de todo o concomitante</strong> do DF, e em apenas 3 anos de operação. O crescimento de +297% desde 2023 indica forte adesão do mercado.</div>
+        </div>
+      </div>
+      <div class="ins">
+        <div class="ins-ico" style="background:rgba(245,158,11,.12);">🏛️</div>
+        <div>
+          <div class="ins-title">HPTNM:</div>
+          <div class="ins-body">Com 10.167 matrículas e 4 anos consecutivos de alta, o HPTNM é muito relevante com a expansão do TEM. O acumulado de <strong>+40% desde 2022</strong> confirma sua força como principal programa técnico privado do DF.</div>
+        </div>
+      </div>
+      <div class="ins">
+        <div class="ins-ico" style="background:rgba(200,16,46,.10);">🎯</div>
+        <div>
+          <div class="ins-title">Senac: privado técnico</div>
+          <div class="ins-body">O HPTNM e TEM do Senac detém <strong>10.167 das 17.744 matrículas técnicas privadas</strong> do DF. Uma posição de liderança que posiciona a instituição como referência.</div>
+        </div>
+      </div>
+      <div class="ins">
+        <div class="ins-ico" style="background:rgba(52,211,153,.12);">📈</div>
+        <div>
+          <div class="ins-title">DF cresce 9× acima da média nacional</div>
+          <div class="ins-body">O concomitante nacional cresceu +11% em 2025 e no DF a alta foi de <strong>+93%</strong>. O TEM Senac é o fator diferenciador.</div>
+        </div>
+      </div>
+      <div class="ins">
+        <div class="ins-ico" style="background:rgba(34,211,238,.12);">👤</div>
+        <div>
+          <div class="ins-title">Jovens de 15–17 anos: o público-alvo em expansão</div>
+          <div class="ins-body">O TEM é projetado exatamente para os jovens de 15 a 17 anos cursando o ensino médio público. Com <strong>4.808 jovens nessa faixa na rede pública</strong> e 4.538 na privada, há espaço real para crescimento do programa.</div>
+        </div>
+      </div>
+      <div class="ins">
+        <div class="ins-ico" style="background:rgba(251,113,133,.12);">⚠️</div>
+        <div>
+          <div class="ins-title">Ensino médio em queda:</div>
+          <div class="ins-body">O EM perdeu <strong>8.917 matrículas entre 2022 e 2025</strong> no DF. Esta retração não é apenas preocupante mas também uma janela estratégica. São buscadas alternativas com mais valor percebido, e o diploma técnico simultâneo é um diferencial competitivo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCLUSÃO EXECUTIVA -->
+  <div class="section">
+    <div class="hl-strip" style="background:linear-gradient(135deg,#1e1a2e 0%,#1a2336 60%,#0f1d30 100%);">
+      <div style="position:relative;z-index:1;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#475569;margin-bottom:12px;">Conclusão</div>
+        <div class="hl-strip-title" style="font-size:22px;">O Senac é muito importante na educação técnica no DF</div>
+        <div class="hl-strip-body" style="margin-top:10px;">
+          Os dados do Censo Escolar 2025 demonstram que o sistema educacional do DF como um todo recua, e o Senac avança. Sendo que o programa <strong>TEM cresce de forma acelerada</strong>, tornando-se o principal motor do ensino concomitante regional. A <strong>HPTNM sustenta uma base sólida e crescente</strong>. O desafio estratégico agora é <strong>manter a qualidade no crescimento</strong> e <strong>ampliar o TEM</strong> nas escolas públicas.
+        </div>
+        <div class="hl-nums" style="margin-top:24px;">
+          <div class="hl-num-block">
+            <div class="hl-num-val" style="color:var(--purp);">+297%</div>
+            <div class="hl-num-lbl">crescimento TEM · 2023→2025</div>
+          </div>
+          <div class="hl-num-block">
+            <div class="hl-num-val" style="color:var(--amber);">+40%</div>
+            <div class="hl-num-lbl">crescimento HPTNM · 2022→2025</div>
+          </div>
+          <div class="hl-num-block">
+            <div class="hl-num-val" style="color:#fb7185;">57,3%</div>
+            <div class="hl-num-lbl">market share privado técnico DF</div>
+          </div>
+          <div class="hl-num-block">
+            <div class="hl-num-val" style="color:var(--green);">10.167</div>
+            <div class="hl-num-lbl">matrículas totais Senac DF · 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>Senac · Distrito Federal · Análise Estratégica de Dados</span>
+  <span>Fonte: Censo Escolar 2025 · INEP/MEC:
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiN2ViNDBjNDEtMTM0OC00ZmFhLWIyZWYtZjI1YjU0NzQzMTJhIiwidCI6IjI2ZjczODk3LWM4YWMtNGIxZS05NzhmLWVhNGMwNzc0MzRiZiJ9" target="_blank">BI - INEP</a> | 
+    <a href="https://www.gov.br/mec/pt-br" target="_blank">Ministério da Educação</a>
+  </span>
+  <span>março de 2026</span>
+</footer>
+
+</body>
+</html>
